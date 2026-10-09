@@ -1,11 +1,32 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+//import { useState } from 'react'
+// import heroImg from './assets/hero.png'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from './assets/vite.svg'
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const todoList = [
+    {id: 1, title: "review resources"},
+    {id: 2, title: "take notes and study"},
+    {id: 3, title: "code out app"},
+]
+  return (
+    <div>
+      <h1>Todo List</h1>
+      <ul>
+            {todoList.map(todo => <li key={todo.id}>{todo.title}</li>)}
+        </ul>
+    </div>
+  )
+}
+
+export default App
+
+
+/* function App() {
+ // const [count, setCount] = useState(0)
 
   return (
     <>
@@ -40,7 +61,7 @@ function App() {
           <h2>Documentation</h2>
           <p>Your questions, answered</p>
           <ul>
-            <li>
+  /*          <li>
               <a href="https://vite.dev/" target="_blank">
                 <img className="logo" src={viteLogo} alt="" />
                 Explore Vite
@@ -117,6 +138,6 @@ function App() {
       <section id="spacer"></section>
     </>
   )
-}
+}*/
 
-export default App
+// export default App
