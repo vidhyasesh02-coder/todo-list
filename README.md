@@ -1,16 +1,13 @@
-# React + Vite
+This app will help create and maintain list of tasks that we normally write down, plan and execute at home or at work.
+React and Vite are used. Currently running in local server.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Installation steps.
+Open Command prompt.
+start vite by running this command
+npm run dev.
+This will run the vite server.
+Open a browse.
+write this command in the URL line -  http://localhost:5173
+This will shown that Vite is running.
+Vite runs and is listening to the todo app results/or the page we have developed.
+It will show the page/results.
