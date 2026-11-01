@@ -2,22 +2,30 @@
 // import heroImg from './assets/hero.png'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from './assets/vite.svg'
-
+import { useState } from 'react';
 import TodoList from './TodoList.jsx';
-
 import TodoForm from './TodoForm.jsx';
+import './App.css';
 
-import './App.css'
+
 
 
 function App() {
+const [todoList, setTodoList] = useState([]);
 
-  
+function addTodo(todoTitle) {
+    const newTodo = {
+      id: Date.now(),
+      title: todoTitle,
+    };
+setTodoList(previous => [newTodo, ...previous]);
+  }
   return (
     <div>
       <h1>Todo List</h1>
-      <TodoForm />  
-       <TodoList />
+     
+       <TodoForm onAddTodo={addTodo} />
+       <TodoList todoList={todoList} />
     
     </div>
   )
