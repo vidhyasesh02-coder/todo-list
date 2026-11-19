@@ -17,6 +17,9 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo  }) {
  const [isEditing, setIsEditing] = useState(false);
  const [workingTitle, setWorkingTitle] = useState(todo.title);
 
+ const handleEdit = (event) => {
+  setWorkingTitle(event.target.value);
+};
 
  const handleCancel = () => {
   setIsEditing(false);
@@ -35,42 +38,42 @@ function TodoListItem({ todo, onCompleteTodo, onUpdateTodo  }) {
     
 return (
   <li>
-    {isEditing ? (
-  <form onSubmit={handleUpdate}>
-    <TextInputWithLabel
-      elementId={`editTodo-${todo.id}`}
-      labelText="Edit Todo"
-      value={workingTitle}
-      onChange={(event) => setWorkingTitle(event.target.value)}
-    />
+    <form onSubmit={handleUpdate}>
+      {isEditing ? (
+        <>
+          <TextInputWithLabel
+            elementId={`editTodo-${todo.id}`}
+            labelText="Edit Todo"
+            value={workingTitle}
+            onChange={handleEdit}
+          />
 
-    <button type="button" onClick={handleCancel}>
-      Cancel
-    </button>
+          <button type="button" onClick={handleCancel}>
+            Cancel
+          </button>
 
-    <button
-      type="button"
-      onClick={handleUpdate}
-      disabled={!isValidTodoTitle(workingTitle)}
-    >
-      Update
-    </button>
-  </form>
-) : (
-      <form>
-        <input
-          type="checkbox"
-          checked={todo.isCompleted}
-          onChange={() => onCompleteTodo(todo.id)}
-        />
-        <span onClick={() => setIsEditing(true)}>
-          {todo.title}
-        </span>
-      </form>
-    )}
+          <button
+            type="submit"
+            disabled={!isValidTodoTitle(workingTitle)}
+          >
+            Update
+          </button>
+        </>
+      ) : (
+        <>
+          <input
+            type="checkbox"
+            checked={todo.isCompleted}
+            onChange={() => onCompleteTodo(todo.id)}
+          />
+
+          <span onClick={() => setIsEditing(true)}>
+            {todo.title}
+          </span>
+        </>
+      )}
+    </form>
   </li>
 );
-
-  
 }
 export default TodoListItem;
