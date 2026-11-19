@@ -3,8 +3,13 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from './assets/vite.svg'
 import { useState } from 'react';
-import TodoList from './TodoList.jsx';
-import TodoForm from './TodoForm.jsx';
+//import TodoList from './TodoList.jsx';
+//import TodoForm from './TodoForm.jsx';
+
+
+import TodoList from './features/TodoList/TodoList';
+import TodoForm from './features/TodoForm';
+
 import './App.css';
 
 
@@ -35,6 +40,19 @@ function completeTodo(id) {
 }
 
 
+const updateTodo = (editedTodo) => {
+  const updatedTodos = todoList.map((todo) => {
+    if (todo.id === editedTodo.id) {
+      return { ...todo, ...editedTodo };
+    } else {
+      return todo;
+    }
+  });
+
+  setTodoList(updatedTodos);
+};
+
+
 
 
 
@@ -47,6 +65,7 @@ function completeTodo(id) {
        <TodoList
   todoList={todoList}
   onCompleteTodo={completeTodo}
+  onUpdateTodo={updateTodo}
      />
       
     
